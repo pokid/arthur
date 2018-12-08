@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfgo">授权登录</button>
 
   <!-- 用户 openid -->
   <view class="userinfo">
@@ -12,6 +13,9 @@
     <view>
       <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
     </view>
+  </view>
+  <view>
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
   </view>
 
 
