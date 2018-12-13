@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="my-info-wrapper">
+    <view class="my-info-avatar-label">
+      头像：
+    </view>
+    <view class="my-info-avatar" style="background-image: url({{avatarUrl}})"></view>
+  </view>
+  <view class="my-info-wrapper">
+    <view class="my-info-nickname-label">
+      昵称：
+    </view>
+    <view class="my-info-nickname">
+      {{nickName}}
+    </view>
+  </view>
+  <view class="my-info-wrapper">
+    <view class="my-info-name-label">
+      姓名：
+    </view>
+    <view class="my-info-name">
+      我的姓名
+    </view>
+  </view>
+  <view class="my-info-wrapper">
+    <view class="my-info-gender-label">
+      性别：
+    </view>
+    <view class="my-info-gender">
+      男
+    </view>
+  </view>
+  <view class="my-info-wrapper">
+    <view class="my-info-role-label">
+      职位：
+    </view>
+    <view class="my-info-role">
+      学生
+    </view>
+  </view>
+  <view class="my-info-wrapper">
+    <view class="my-info-id-label">
+      编号：
+    </view>
+    <view class="my-info-id">
+      MF1800000
+    </view>
+  </view>
+</view>

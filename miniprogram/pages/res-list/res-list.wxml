@@ -1,0 +1,66 @@
+<view class="container">
+  <view class="resource" bindtap="getResDetail">
+    <view class="resource-image">
+      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="/images/placeholder-list.png"></image>
+    </view>
+    <view class="resource-info">
+      <view class="resource-info-wrapper">
+        <view class="resource-info-name">预约项目</view>
+        <view class="resource-info-state color-green">进行中</view>
+      </view>
+      <view class="resource-info-wrapper">
+        <view class="resource-info-time">00:00:00-24:00:00</view>
+        <view class="resource-info-surplus color-green">10/100</view>
+      </view>
+      <view class="resource-info-address">江苏省南京市鼓楼区汉口路22号</view>
+    </view>
+  </view>
+  <view class="resource">
+    <view class="resource-image">
+      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="/images/placeholder-list.png"></image>
+    </view>
+    <view class="resource-info">
+      <view class="resource-info-wrapper">
+        <view class="resource-info-name">预约项目</view>
+        <view class="resource-info-state color-yellow">未开始</view>
+      </view>
+      <view class="resource-info-wrapper">
+        <view class="resource-info-time">00:00:00-24:00:00</view>
+        <view class="resource-info-surplus color-red">0/100</view>
+      </view>
+      <view class="resource-info-address">江苏省南京市鼓楼区汉口路22号</view>
+    </view>
+  </view>
+  <view class="resource">
+    <view class="resource-image">
+      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="/images/placeholder-list.png"></image>
+    </view>
+    <view class="resource-info">
+      <view class="resource-info-wrapper">
+        <view class="resource-info-name">预约项目</view>
+        <view class="resource-info-state color-red">已完成</view>
+      </view>
+      <view class="resource-info-wrapper">
+        <view class="resource-info-time">00:00:00-24:00:00</view>
+        <view class="resource-info-surplus color-green">10/100</view>
+      </view>
+      <view class="resource-info-address">江苏省南京市鼓楼区汉口路22号</view>
+    </view>
+  </view>
+  <view class="resource">
+    <view class="resource-image">
+      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="/images/placeholder-list.png"></image>
+    </view>
+    <view class="resource-info">
+      <view class="resource-info-wrapper">
+        <view class="resource-info-name">预约项目</view>
+        <view class="resource-info-state color-yellow">未开始</view>
+      </view>
+      <view class="resource-info-wrapper">
+        <view class="resource-info-time">00:00:00-24:00:00</view>
+        <view class="resource-info-surplus color-red">0/100</view>
+      </view>
+      <view class="resource-info-address">江苏省南京市鼓楼区汉口路22号</view>
+    </view>
+  </view>
+</view>

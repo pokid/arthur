@@ -1,19 +1,47 @@
 {
   "cloud": true,
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/res-list/res-list",
+    "pages/res-add/res-add",
+    "pages/my/my",
+    "pages/res-detail/res-detail",
+    "pages/my-info/my-info",
+    "pages/my-order/my-order",
+    "pages/my-res/my-res",
+    "pages/my-order-detail/my-order-detail",
+    "pages/my-res-detail/my-res-detail"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#f6f6f6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "预约程序",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#007aff",
+    "backgroundColor": "#f6f6f6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/res-list/res-list",
+        "text": "首页",
+        "iconPath": "images/res-list.png",
+        "selectedIconPath": "images/res-list-press.png"
+      },
+      {
+        "pagePath": "pages/res-add/res-add",
+        "text": "发布",
+        "iconPath": "images/res-add.png",
+        "selectedIconPath": "images/res-add-press.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-press.png"
+      }
+    ]
   }
 }
