@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="my-info">
+    <button class="my-info-avatar" style="background-image: url({{avatarUrl}})"></button>
+    <view>
+      <button class="my-info-nickname">{{nickName}}</button>
+    </view>
+  </view>
+  <view class="my-wrapper" style="margin-top: 40rpx;border-top: 1rpx solid rgba(0, 0, 0, 0.1);">
+    <view>
+      个人信息
+    </view>
+    <view class="my-arrow" bindtap="getMyInfo"></view>
+  </view>
+  <view class="my-wrapper">
+    <view>
+      我的预约
+    </view>
+    <view class="my-arrow" bindtap="getMyOrder"></view>
+  </view>
+  <view class="my-wrapper">
+    <view>
+      我的发布
+    </view>
+    <view class="my-arrow" bindtap="getMyRes"></view>
+  </view>
+</view>

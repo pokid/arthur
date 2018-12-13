@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="resource-label">预约信息</view>
+  <image style="width: 750rpx;height: 400rpx;" mode="scaleToFill" src="/images/placeholder-detail.png">
+  </image>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目名称：
+    </view>
+    <view class="resource-info-name">
+      预约项目名称
+    </view>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      发起人：
+    </view>
+    <view class="resource-info-author">
+      发起人昵称
+    </view>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目时间：
+    </view>
+    <view class="resource-info-time">
+      2018年12月20日 00:00:00-24:00:00
+    </view>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      可预约：
+    </view>
+    <view class="resource-info-surplus color-green">
+      10/100
+    </view>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目地点：
+    </view>
+    <view class="resource-info-address">
+      江苏省南京市鼓楼区汉口路22号
+    </view>
+  </view>
+  <view class="resource-label">备注信息</view>
+  <view class="resource-info-remarks">这是一条项目的备注信息。</view>
+  <view class="resource-order-button-wrapper">
+    <button class="resource-order-button" bindtap="order">预约</button>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="resource-label">设置项目</view>
+  <image style="width: 750rpx;height: 400rpx;" mode="scaleToFill" src="/images/placeholder-detail.png"></image>
+  <cover-view class="resource-image-button">
+    更换项目图片
+  </cover-view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目名称：
+    </view>
+    <input placeholder="请填写"></input>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label" name="name">
+      项目日期：
+    </view>
+    <picker mode="date" value="{{date}}" start="2018-12-20" end="2019-01-30" bindchange="changeDate">
+      <view class="resource-info-picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目时间：
+    </view>
+    <picker mode="time" value="{{startTime}}" start="00:00" end="24:00" bindchange="changeStartTime">
+      <view class="resource-info-picker">
+        {{startTime}}
+      </view>
+    </picker>
+    <view class="resource-info-picker">/</view>
+    <picker mode="time" value="{{endTime}}" start="00:00" end="24:00" bindchange="changeEndTime">
+      <view class="resource-info-picker">
+        {{endTime}}
+      </view>
+    </picker>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      资源总数：
+    </view>
+    <input placeholder="请填写" type="number" name="total"></input>
+  </view>
+  <view class="resource-info-wrapper">
+    <view class="resource-info-label">
+      项目地点：
+    </view>
+    <input placeholder="请填写" name="address"></input>
+  </view>
+  <view class="resource-label">备注信息</view>
+  <textarea class="resource-info-remarks" placeholder="请填写" name="remarks"></textarea>
+  <view class="resource-release-button-wrapper">
+    <button class="resource-release-button" bindtap="release">发布</button>
+  </view>
+</view>
