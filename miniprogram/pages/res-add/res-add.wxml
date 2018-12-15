@@ -14,7 +14,7 @@
     <view class="resource-info-label" name="name">
       项目日期：
     </view>
-    <picker mode="date" value="{{date}}" start="2018-12-20" end="2019-01-30" bindchange="changeDate">
+    <picker mode="date" value="{{date}}" start="2018-12-20" end="2019-01-30" bindchange="bindDateChange">
       <view class="resource-info-picker">
         {{date}}
       </view>
@@ -24,13 +24,13 @@
     <view class="resource-info-label">
       项目时间：
     </view>
-    <picker mode="time" value="{{startTime}}" start="00:00" end="24:00" bindchange="changeStartTime">
+    <picker mode="time" value="{{startTime}}" start="00:00" end="24:00" bindchange="bindStartTimeChange">
       <view class="resource-info-picker">
         {{startTime}}
       </view>
     </picker>
     <view class="resource-info-picker">/</view>
-    <picker mode="time" value="{{endTime}}" start="00:00" end="24:00" bindchange="changeEndTime">
+    <picker mode="time" value="{{endTime}}" start="00:00" end="24:00" bindchange="bindEndTimeChange">
       <view class="resource-info-picker">
         {{endTime}}
       </view>
@@ -50,7 +50,8 @@
   </view>
   <view class="resource-label">备注信息</view>
   <textarea class="resource-info-remarks" placeholder="请填写" name="remarks"></textarea>
-  <view class="resource-release-button-wrapper">
+  <view class="resource-button-wrapper">
     <button class="resource-release-button" bindtap="release">发布</button>
+    <button class="resource-cancel-button" bindtap="cancel">取消</button>
   </view>
 </view>

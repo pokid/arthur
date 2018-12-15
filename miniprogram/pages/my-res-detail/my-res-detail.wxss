@@ -6,6 +6,10 @@ Page {
   justify-content: flex-start;
 }
 
+input {
+  min-width: 75%;
+}
+
 .resource-label {
   color: rgba(16, 16, 16, 0.8);
   background-color: rgba(187, 187, 187, 0.3);
@@ -37,24 +41,36 @@ Page {
 
 .resource-info-remarks {
   background-color: #fff;
-  width: 100%;
-  padding: 15rpx 35rpx;
+  width: 700rpx;
+  padding: 20rpx 35rpx;
   height: 100rpx;
 }
 
-.resource-release-button-wrapper {
+.resource-button-wrapper {
   width: 100%;
   position: fixed;
   bottom: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.resource-release-button {
+.resource-save-button {
   font-size: 30rpx;
   color: #fff;
   background-color: rgba(63, 81, 181, 0.8);
-  width: 85%;
+  width: 45%;
+  height: 55rpx;
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resource-cancel-button {
+  font-size: 30rpx;
+  color: #fff;
+  background-color: rgba(229, 28, 35, 0.8);
+  width: 45%;
   height: 55rpx;
   margin: 20rpx 0;
   display: flex;

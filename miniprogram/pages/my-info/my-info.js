@@ -4,7 +4,11 @@ Page({
     nickName: "我的昵称"
   },
 
-  onLoad: function () {
-  },
-  
+  onLoad: function() {},
+
+  update: function() {
+    wx.navigateTo({
+      url: '/pages/my-info-edit/my-info-edit',
+    })
+  }
 })

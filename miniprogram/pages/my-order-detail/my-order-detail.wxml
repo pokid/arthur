@@ -44,7 +44,7 @@
   </view>
   <view class="resource-label">备注信息</view>
   <view class="resource-info-remarks">这是一条项目的备注信息。</view>
-  <view class="resource-order-button-wrapper">
-    <button class="resource-order-button" bindtap="cancel">取消预约</button>
+  <view class="resource-cancel-button-wrapper">
+    <button class="resource-cancel-button" bindtap="cancel">取消预约</button>
   </view>
 </view>

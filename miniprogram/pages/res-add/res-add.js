@@ -5,23 +5,25 @@ Page({
     endTime: "结束时间"
   },
 
-  onLoad: function() {
+  onLoad: function() {},
+
+  onShow: function() {
     wx.hideTabBar({})
   },
 
-  changeDate(e) {
+  bindDateChange(e) {
     this.setData({
       date: e.detail.value
     })
   },
 
-  changeStartTime(e) {
+  bindStartTimeChange(e) {
     this.setData({
       startTime: e.detail.value
     })
   },
 
-  changeEndTime(e) {
+  bindEndTimeChange(e) {
     this.setData({
       endTime: e.detail.value
     })
@@ -30,7 +32,28 @@ Page({
   release(e) {
     wx.showModal({
       title: '',
-      content: '发布成功',
+      content: '项目发布成功',
+      showCancel: false,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.switchTab({
+            url: '/pages/res-list/res-list',
+            success: function() {
+              wx.showTabBar({})
+            }
+          })
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  cancel(e) {
+    wx.showModal({
+      title: '',
+      content: '取消发布项目',
       showCancel: false,
       success: function(res) {
         if (res.confirm) {

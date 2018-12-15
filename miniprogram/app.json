@@ -5,6 +5,7 @@
     "pages/my/my",
     "pages/res-detail/res-detail",
     "pages/my-info/my-info",
+    "pages/my-info-edit/my-info-edit",
     "pages/my-order/my-order",
     "pages/my-res/my-res",
     "pages/my-order-detail/my-order-detail",
