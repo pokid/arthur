@@ -1,8 +1,8 @@
 <view class="container">
   <view class="resource-label">设置项目</view>
   <image style="width: 750rpx;height: 400rpx;" mode="scaleToFill" src="/images/placeholder-detail.png"></image>
-  <cover-view class="resource-image-button">
-    更换项目图片
+  <cover-view class="resource-image-button" bindtap="bindImageChange">
+    更改项目图片
   </cover-view>
   <view class="resource-info-wrapper">
     <view class="resource-info-label">

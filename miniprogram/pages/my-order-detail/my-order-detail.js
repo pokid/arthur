@@ -1,7 +1,6 @@
 Page({
   data: {
-    resID: 0,
-    
+    resID: 0
   },
 
   onLoad: function(option) {

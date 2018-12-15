@@ -12,6 +12,10 @@ Page({
     })
   },
 
+  bindImageChange(e) {
+    this.setData({})
+  },
+
   bindDateChange(e) {
     this.setData({
       date: e.detail.value

@@ -11,6 +11,10 @@ Page({
     wx.hideTabBar({})
   },
 
+  bindImageChange(e) {
+    this.setData({})
+  },
+
   bindDateChange(e) {
     this.setData({
       date: e.detail.value
