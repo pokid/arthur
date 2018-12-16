@@ -101,15 +101,17 @@ Page({
               resInfo.pubPerson = pubPerson
               wx.cloud.callFunction({
                 name: 'db_addRes',
-                data: resInfo
+                data: resInfo,
+                success:res=>{
+                  wx.switchTab({
+                    url: '/pages/res-list/res-list',
+                    success: function () {
+                      getCurrentPages().pop().onLoad()
+                      wx.showTabBar({})
+                    }
+                  })
+                }
               })
-            }
-          })
-          wx.switchTab({
-            url: '/pages/res-list/res-list',
-            success: function () {
-              getCurrentPages().pop().onLoad()
-              wx.showTabBar({})
             }
           })
         } else {
