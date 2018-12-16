@@ -38,6 +38,7 @@ Page({
       title: '',
       content: '项目发布成功',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
@@ -59,6 +60,7 @@ Page({
       title: '',
       content: '取消发布项目',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
