@@ -17,35 +17,43 @@
     <view class="my-info-name-label">
       姓名：
     </view>
-    <view class="my-info-name">
+    <!-- <view class="my-info-name">
       我的姓名
-    </view>
+    </view> -->
+    <input value="我的姓名" placeholder="请填写"></input>
   </view>
   <view class="my-info-wrapper">
     <view class="my-info-gender-label">
       性别：
     </view>
-    <view class="my-info-gender">
+    <!-- <view class="my-info-gender">
       男
-    </view>
+    </view> -->
+    <picker bindchange="bindGenderPickerChange" value="{{gender_index}}" range="{{gender}}">
+      <view>{{gender[gender_index]}} </view>
+    </picker>
   </view>
   <view class="my-info-wrapper">
     <view class="my-info-role-label">
       职位：
     </view>
-    <view class="my-info-role">
+    <!-- <view class="my-info-role">
       学生
-    </view>
+    </view> -->
+    <picker bindchange="bindRolePickerChange" value="{{role_index}}" range="{{role}}">
+      <view>{{role[role_index]}} </view>
+    </picker>
   </view>
   <view class="my-info-wrapper">
     <view class="my-info-id-label">
       编号：
     </view>
-    <view class="my-info-id">
+    <!-- <view class="my-info-id">
       MF1800000
-    </view>
+    </view> -->
+    <input value="MF1800000" placeholder="请填写"></input>
   </view>
-  <view class="resource-update-button-wrapper">
-    <button class="resource-update-button" bindtap="update">修改信息</button>
+  <view class="resource-save-button-wrapper">
+    <button class="resource-save-button" bindtap="save">保存修改</button>
   </view>
 </view>

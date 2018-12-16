@@ -12,19 +12,23 @@ Page({
     })
   },
 
-  changeDate(e) {
+  bindImageChange(e) {
+    this.setData({})
+  },
+
+  bindDateChange(e) {
     this.setData({
       date: e.detail.value
     })
   },
 
-  changeStartTime(e) {
+  bindStartTimeChange(e) {
     this.setData({
       startTime: e.detail.value
     })
   },
 
-  changeEndTime(e) {
+  bindEndTimeChange(e) {
     this.setData({
       endTime: e.detail.value
     })
@@ -34,6 +38,22 @@ Page({
     wx.showModal({
       title: '',
       content: '信息修改成功',
+      showCancel: false,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.navigateBack({})
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  cancel: function() {
+    wx.showModal({
+      title: '',
+      content: '项目已取消',
       showCancel: false,
       success: function(res) {
         if (res.confirm) {

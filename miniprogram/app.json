@@ -6,11 +6,11 @@
     "pages/my/my",
     "pages/res-detail/res-detail",
     "pages/my-info/my-info",
+    "pages/my-info-edit/my-info-edit",
     "pages/my-order/my-order",
     "pages/my-res/my-res",
     "pages/my-order-detail/my-order-detail",
-    "pages/my-res-detail/my-res-detail",
-    "pages/chooseLib/chooseLib"
+    "pages/my-res-detail/my-res-detail"
   ],
   "window": {
     "backgroundColor": "#f6f6f6",
@@ -21,7 +21,7 @@
   },
   "tabBar": {
     "color": "#333333",
-    "selectedColor": "#007aff",
+    "selectedColor": "#3f51b5",
     "backgroundColor": "#f6f6f6",
     "borderStyle": "white",
     "list": [

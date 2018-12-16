@@ -1,4 +1,4 @@
-<view class="container"  bindtap="onLoad">
+<view class="container">
   <view class="resource-label">预约信息</view>
   <image style="width: 750rpx;height: 400rpx;" mode="scaleToFill" src="/images/placeholder-detail.png">
   </image>

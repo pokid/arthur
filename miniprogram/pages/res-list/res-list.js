@@ -25,8 +25,8 @@ Page({
       }
     })
   },
-  
-  getResDetail: function(event) {
+
+  getResDetail: function (event) {
     const resInfo = JSON.stringify(event.currentTarget.dataset.resinfo)
     wx.navigateTo({
       url: '/pages/res-detail/res-detail?resInfo=' + resInfo

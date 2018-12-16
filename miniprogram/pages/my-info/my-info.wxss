@@ -24,9 +24,28 @@ Page {
 .my-info-avatar {
   width: 150rpx;
   height: 150rpx;
-  /* margin: 40rpx; */
   border-radius: 50%;
   background-size: cover;
   background-color: white;
   align-self: center;
+}
+
+.resource-update-button-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.resource-update-button {
+  font-size: 30rpx;
+  color: #fff;
+  background-color: rgba(63, 81, 181, 0.8);
+  width: 85%;
+  height: 55rpx;
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

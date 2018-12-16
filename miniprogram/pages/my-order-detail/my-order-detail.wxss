@@ -28,11 +28,11 @@ Page {
 
 .resource-info-remarks {
   background-color: #fff;
-  padding: 15rpx 35rpx;
+  padding: 20rpx 35rpx;
   min-height: 100rpx;
 }
 
-.resource-order-button-wrapper {
+.resource-cancel-button-wrapper {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -40,7 +40,7 @@ Page {
   justify-content: center;
 }
 
-.resource-order-button {
+.resource-cancel-button {
   font-size: 30rpx;
   color: #fff;
   background-color: rgba(229, 28, 35, 0.8);
