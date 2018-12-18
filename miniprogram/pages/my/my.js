@@ -4,7 +4,16 @@ Page({
     nickName: "我的昵称"
   },
 
-  onLoad: function() {},
+  onLoad: function() {
+    wx.getUserInfo({
+      success: res => {
+        this.setData({
+          nickName: res.userInfo.nickName,
+          avatarUrl: res.userInfo.avatarUrl
+        })
+      }
+    })
+  },
 
   getMyInfo: function() {
     wx.navigateTo({

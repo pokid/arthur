@@ -3,14 +3,14 @@
     <view class="my-info-avatar-label">
       头像：
     </view>
-    <view class="my-info-avatar" style="background-image: url({{avatarUrl}})"></view>
+    <view class="my-info-avatar" style="background-image: url({{userInfo.imgUrl}})"></view>
   </view>
   <view class="my-info-wrapper">
     <view class="my-info-nickname-label">
       昵称：
     </view>
     <view class="my-info-nickname">
-      {{nickName}}
+      {{userInfo.nickName}}
     </view>
   </view>
   <view class="my-info-wrapper">
@@ -18,7 +18,7 @@
       姓名：
     </view>
     <view class="my-info-name">
-      我的姓名
+      {{userInfo.name}}
     </view>
   </view>
   <view class="my-info-wrapper">
@@ -26,7 +26,7 @@
       性别：
     </view>
     <view class="my-info-gender">
-      男
+      {{userInfo.gender}}
     </view>
   </view>
   <view class="my-info-wrapper">
@@ -34,7 +34,7 @@
       职位：
     </view>
     <view class="my-info-role">
-      学生
+      {{userInfo.job}}
     </view>
   </view>
   <view class="my-info-wrapper">
@@ -42,10 +42,10 @@
       编号：
     </view>
     <view class="my-info-id">
-      MF1800000
+      {{userInfo.identifier}}
     </view>
   </view>
   <view class="resource-update-button-wrapper">
-    <button class="resource-update-button" bindtap="update">修改信息</button>
+    <button class="resource-update-button"  bindtap="update" data-userInfo="{{userInfo}}">修改信息</button>
   </view>
 </view>

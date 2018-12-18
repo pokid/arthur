@@ -20,7 +20,7 @@ App({
         success: res => {
           const openid = res.result.openid
           this.globalData.openid = openid
-          //個任信息入庫
+          //个人信息入库
           wx.getUserInfo({
             success: res => {
               const userInfo = res.userInfo
@@ -38,7 +38,6 @@ App({
                         _id: openid,
                         openid: openid,
                         nickName: userInfo.nickName,
-                        name: userInfo.nickName,
                         gender: userInfo.gender,
                         city: userInfo.city,
                         imgUrl: userInfo.avatarUrl

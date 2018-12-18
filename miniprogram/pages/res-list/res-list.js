@@ -6,7 +6,6 @@ Page({
   },
 
   onLoad: function () {
-    console.log(111)
     // 获取用户信息
     wx.getSetting({
       success: res => {

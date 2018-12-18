@@ -35,6 +35,7 @@ Page({
   //发布资源
   pubRes(e){
     const subResInfo = e.detail.value
+    console.log(subResInfo)
     //校验信息
     if (subResInfo.resName == "") {
       wx.showModal({
@@ -120,25 +121,6 @@ Page({
           })
         } else {
           console.log('用户点击取消')
-        }
-      }
-    })
-  },
-
-  release(e) {
-    wx.showModal({
-      title: '',
-      content: '项目发布成功',
-      showCancel: false,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          wx.switchTab({
-            url: '/pages/res-list/res-list',
-            success: function () {
-              wx.showTabBar({})
-            }
-          })
         }
       }
     })

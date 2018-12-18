@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     resID: '',
@@ -26,10 +27,10 @@ Page({
 
   //預約
   //資源：可預約資源-1  預約用戶+1
-  //用戶：預約資源-1
+  //用戶：預約資源+1
   preOrder: function () {
     const resInfo = this.data.resInfo
-    //構造resData
+    //构造resData update
     const resData = {}
     const _resInfo = {}
     resInfo.canCount = resInfo.canCount - 1
@@ -43,11 +44,35 @@ Page({
       showCancel: false,
       success: function(res) {
         if (res.confirm) {
+          //更新资源信息
           wx.cloud.callFunction({
             name: 'db_updateResInfo',
             data: resData
           })
-          //必須先刷新上機頁面在刷新當前頁
+
+          //更新用户信息 先查已预约资源再改
+          const db = wx.cloud.database()
+          const _ = db.command
+          wx.cloud.callFunction({
+            name: 'db_getUserInfoById',
+            data: {
+              _id: app.globalData.openid
+            },
+            success:res=>{
+              const preRes = res.result.data.preResource
+              preRes.push(resInfo._id)
+              wx.cloud.callFunction({
+                name: 'db_updateUserInfo',
+                data: {
+                  _id: app.globalData.openid,
+                  _userInfo:{
+                    preResource: Array.from(new Set(preRes))
+                  },
+                },
+              })
+            }
+          })
+          //必須先刷新上层页面再刷新当前页
           getCurrentPages()[getCurrentPages().length - 2].onLoad()
           getCurrentPages()[getCurrentPages().length - 1].onLoad(resInfo)
           console.log('用户点击确定')
