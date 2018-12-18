@@ -89,7 +89,7 @@ Page({
           filePath,
           success: res => {
             console.log('[上传文件] 成功：', res)
-
+ 
             app.globalData.fileID = res.fileID
             app.globalData.cloudPath = cloudPath
             app.globalData.imagePath = filePath

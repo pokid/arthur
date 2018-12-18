@@ -1,7 +1,7 @@
 <view class="container" bindtap="onLoad">
   <view class="resource" data-resInfo="{{resInfo}}"  bindtap="getOrderDetail" wx:for="{{myPreResList}}" wx:for-index="idx" wx:for-item="resInfo">
     <view class="resource-image">
-      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="/images/placeholder-list.png"></image>
+      <image style="width: 300rpx;height: 180rpx;" mode="scaleToFill" src="{{resInfo.imgUrl}}"></image>
     </view>
     <view class="resource-info">
       <view class="resource-info-wrapper">

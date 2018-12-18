@@ -11,8 +11,6 @@ Page({
         _id: app.globalData.openid
       },
       success: res => {
-        console.log(app.globalData.openid)
-        console.log(res)
         this.setData({
           myPubResList: res.result
         })

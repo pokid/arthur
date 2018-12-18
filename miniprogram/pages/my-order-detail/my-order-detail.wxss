@@ -6,6 +6,10 @@ Page {
   justify-content: flex-start;
 }
 
+image {
+  display: block;
+}
+
 .resource-label {
   color: rgba(16, 16, 16, 0.8);
   background-color: rgba(187, 187, 187, 0.3);
@@ -23,7 +27,7 @@ Page {
 }
 
 .resource-info-label {
-  width: 150rpx;
+  width: 25%;
 }
 
 .resource-info-remarks {

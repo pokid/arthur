@@ -42,6 +42,7 @@ Page({
       title: '',
       content: '取消成功',   
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function (res) {
         if (res.confirm) {
           wx.cloud.callFunction({

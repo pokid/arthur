@@ -2,16 +2,22 @@ const app = getApp()
 Page({
   data: {
     resID: '',
-    resInfo:''
+    resInfo:'',
+    imgUrl:''
   },
 
   onLoad: function(option) {
     if (option!=undefined){
       if (option._id !=undefined){
         // const resInfoObj = JSON.parse(option)
+        var _imgUrl = option.imgUrl
+        if (_imgUrl == undefined || _imgUrl.length<10){
+          _imgUrl ="/images/placeholder-detail.png"
+        }
         this.setData({
           resID: option._id,
           resInfo: option,
+          imgUrl: _imgUrl
         })
       }
       if (option.resInfo!=undefined){
@@ -23,7 +29,6 @@ Page({
       }
     }
   },
- 
 
   //預約
   //資源：可預約資源-1  預約用戶+1
@@ -42,6 +47,7 @@ Page({
       title: '',
       content: '预约成功',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           //更新资源信息

@@ -6,9 +6,12 @@ Page {
   justify-content: flex-start;
 }
 
-
 input {
-  min-width: 75%;
+  max-width: 70%;
+}
+
+image {
+  display: block;
 }
 
 .resource-label {
@@ -19,11 +22,13 @@ input {
 
 .resource-image-button {
   background-color: #fff;
-  border: 1rpx solid rgba(16, 16, 16, 0.3);
+  border: 1rpx solid rgba(16, 16, 16, 0.2);
+  width: 200rpx;
   padding: 15rpx 25rpx;
-  position: fixed;
-  top: 100rpx;
-  right: 40rpx;
+  text-align: center;
+  position: relative;
+  top: -350rpx;
+  left: 450rpx;
 }
 
 .resource-info-wrapper {
@@ -33,11 +38,11 @@ input {
   padding: 15rpx 35rpx;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 }
 
 .resource-info-label {
-  width: 150rpx;
+  width: 25%;
 }
 
 .resource-info-remarks {

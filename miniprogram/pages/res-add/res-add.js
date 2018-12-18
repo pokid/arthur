@@ -5,6 +5,7 @@ Page({
     startTime: "开始时间",
     endTime: "结束时间"
   },
+
   onLoad: function() {},
 
   onShow: function() {
@@ -20,6 +21,7 @@ Page({
       date: e.detail.value
     })
   },
+
   bindStartTimeChange(e) {
     this.setData({
       startTime: e.detail.value
@@ -93,6 +95,7 @@ Page({
       title: '',
       content: '发布成功',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function (res) {
         if (res.confirm) {
           //资源入库，包含发布者信息
@@ -131,6 +134,7 @@ Page({
       title: '',
       content: '取消发布项目',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')

@@ -18,13 +18,17 @@ exports.main = async (event, context) => {
     preResInfoList = []
     for (i = 0; i < preResIdList.length; i++) {
       id = preResIdList[i]
-      const res = await cloud.callFunction({
-        name: 'db_getResInfoById',
-        data: {
-          _id: id
-        },
-      })
-      preResInfoList.push(res["result"]["data"])
+      if (id != null) {
+        const res = await cloud.callFunction({
+          name: 'db_getResInfoById',
+          data: {
+            _id: id
+          },
+        })
+        if (res["result"] != null) {
+          preResInfoList.push(res["result"]["data"])
+        }
+      } 
     }
     return preResInfoList
     

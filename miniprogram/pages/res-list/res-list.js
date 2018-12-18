@@ -1,8 +1,11 @@
 const app = getApp()
 Page({
   data: {
-
     resList: '',
+  },
+  onShow: function(){
+    console.log(12123)
+    getCurrentPages()[getCurrentPages().length - 1].onLoad()
   },
 
   onLoad: function () {
@@ -14,10 +17,55 @@ Page({
           wx.cloud.callFunction({
             name: 'db_getResList',
             success: res => {
+              // this.setData({
+              //   resList: res.result.data
+              // })
+              const _resList = res.result.data
+              //imgUrl根据fileID生成，每次生成的imgUrl维持两个小时
+              for (var i = 0; i < _resList.length;i++){
+                const _i = i
+                const resId = _resList[i]._id
+                if (_resList[i].fileID==undefined){
+                  //给一个默认的imgUrl
+                  wx.cloud.callFunction({
+                    name: 'db_updateResInfo',
+                    data: {
+                      _id: resId,
+                      resInfo: {
+                        imgUrl: "/images/placeholder-list.png"
+                      }
+                    },
+                  }) 
+                  continue
+                }
+                
+                wx.cloud.getTempFileURL({
+                  fileList: [_resList[i].fileID],
+                  success: res => {
+                    const tempImgUrl =res.fileList[0].tempFileURL
+                    _resList[_i].imgUrl = tempImgUrl
+                    //imgUrl入库
+                    wx.cloud.callFunction({
+                      name: 'db_updateResInfo',
+                      data: {
+                        _id: resId,
+                        resInfo: {
+                          imgUrl: tempImgUrl
+                        }
+                      },
+                    })  
+                  }
+                })
+              }
+            }
+          })
+          wx.cloud.callFunction({
+            name: 'db_getResList',
+            success: res => {
               this.setData({
                 resList: res.result.data
               })
-              console.log(res.result.data)
+              console.log(this.data.resList,111)
             }
           })
         }

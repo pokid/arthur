@@ -1,7 +1,9 @@
+const app = getApp()
 Page({
   data: {
     resId: 0,
     resInfo:'',
+    imgPath:'/images/placeholder-detail.png',
     date: "请选择",
     startTime: "开始时间",
     endTime: "结束时间"
@@ -20,17 +22,59 @@ Page({
     _resInfo.totalCount = resInfo.totalCount
     _resInfo.address = resInfo.address
     _resInfo.remark = resInfo.remark
+    _resInfo.imgUrl = resInfo.imgUrl
     this.setData({
       resId: _resInfo._id,
       resInfo: _resInfo,
       date: _resInfo.date,
       startTime: _resInfo.resStartTime ,
-      endTime: _resInfo.resEndTime
+      endTime: _resInfo.resEndTime,
+      imgPath: _resInfo.imgUrl,
     })
   },
 
   bindImageChange(e) {
-    this.setData({})
+    const _this = this
+    wx.chooseImage({
+      count: 1, // 默认9    
+      sizeType: ['original','compressed'],
+      sourceType: ['album', 'camera'],
+      success: function(res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+        const filePath = res.tempFilePaths[0]
+        const cloudPath = filePath.split(".")[2]+".png"
+        wx.cloud.uploadFile({
+          cloudPath: cloudPath,
+          filePath: filePath,
+          success: res => {
+            _this.setData({
+              imgPath: filePath
+            })
+            wx.showToast({
+              title: '上传成功',
+            })
+            //fileId入库
+            const _fileID = res.fileID
+            console.log(_fileID)
+            wx.cloud.callFunction({
+              name: 'db_updateResInfo',
+              data: {
+                _id: _this.data.resId,
+                resInfo:{
+                  fileID: _fileID,
+                  imgUrl: filePath
+                }
+              },
+              success:res=>{
+                getCurrentPages()[getCurrentPages().length - 2].onLoad()
+              }
+            })    
+          },
+        })
+      }  
+     })  
   },
 
   bindDateChange(e) {
@@ -54,14 +98,13 @@ Page({
   save: function(option) {
     const submitResInfo = option.detail.value
     const orgResInfo = this.data.resInfo
-
-    // resInfo.timeRange = subResInfo.resDate + " " + subResInfo.resStartTime + " - " + subResInfo.resDate + " " + subResInfo.resEndTime
-
     const moreUserInfo = option.detail.value
+
     wx.showModal({
       title: '',
       content: '信息修改成功',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           //只有修改信息才需update
@@ -95,10 +138,12 @@ Page({
   //资源：删除该资源
   cancel: function() {
     const resId = this.data.resId
+    const userId = app.globalData.openid
     wx.showModal({
       title: '',
       content: '项目已取消',
       showCancel: false,
+      confirmColor: '#3f51b5',
       success: function(res) {
         if (res.confirm) {
           wx.cloud.callFunction({
@@ -107,7 +152,6 @@ Page({
               _id: resId
             },
             success: res => {
-              console.log(res)
               const prePerson = res.result.data.prePerson
               if (prePerson!=undefined){
                 //每个预约该资源的用户预约资源数-1
@@ -145,7 +189,34 @@ Page({
                   })
                 }
               }
-              console.log("del")
+              // 用户发布资源-1
+              wx.cloud.callFunction({
+                name: 'db_getUserInfoById',
+                data: {
+                  _id: userId
+                },
+                success: res => {
+                  if (res.result != undefined) {
+                    const pubResource = res.result.data.pubResource
+                    const pubRes = Array.from(new Set(pubResource))
+                    for (var j = 0; j < pubRes.length; j++) {
+                      if (pubRes[j] == resId) {
+                        pubRes.splice(j, 1)
+                        break
+                      }
+                    }
+                    wx.cloud.callFunction({
+                      name: 'db_updateUserInfo',
+                      data: {
+                        _id: userId,
+                        _userInfo: {
+                          pubResource: pubRes
+                        },
+                      },
+                    })
+                  }
+                }
+              })
               // 删除该资源
               wx.cloud.callFunction({
                 name: 'db_delResById',
