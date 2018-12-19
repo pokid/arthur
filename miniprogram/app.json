@@ -10,7 +10,8 @@
     "pages/my-order/my-order",
     "pages/my-res/my-res",
     "pages/my-order-detail/my-order-detail",
-    "pages/my-res-detail/my-res-detail"
+    "pages/my-res-detail/my-res-detail",
+    "auth"
   ],
   "window": {
     "backgroundColor": "#f6f6f6",

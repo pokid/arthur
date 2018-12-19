@@ -65,7 +65,12 @@ Page({
               _id: app.globalData.openid
             },
             success:res=>{
-              const preRes = res.result.data.preResource
+              console.log(res,444)
+              var data = res.result.data
+              var preRes = data.preResource
+              if (preRes==undefined){
+                preRes = []
+              }
               preRes.push(resInfo._id)
               wx.cloud.callFunction({
                 name: 'db_updateUserInfo',
