@@ -48,6 +48,17 @@ Page({
                   }) 
                   continue
                 }
+
+                //给一个默认的imgUrl
+                wx.cloud.callFunction({
+                  name: 'db_updateResInfo',
+                  data: {
+                    _id: resId,
+                    resInfo: {
+                      isOverdue: time > _resList[i].timeRange.split("- ")[1]
+                    }
+                  },
+                }) 
                 
                 wx.cloud.getTempFileURL({
                   fileList: [_resList[i].fileID],

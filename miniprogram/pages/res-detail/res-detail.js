@@ -109,7 +109,6 @@ Page({
             data: resData
           })
           //必須先刷新上层页面再刷新当前页
-          getCurrentPages()[getCurrentPages().length - 2].onLoad()
           getCurrentPages()[getCurrentPages().length - 1].onLoad(resInfo)
           console.log('用户点击确定')
         } else {

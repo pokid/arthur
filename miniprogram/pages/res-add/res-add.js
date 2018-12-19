@@ -120,7 +120,6 @@ Page({
     resInfo.remark = subResInfo.remark
     resInfo.fileID = this.data.fileID
     resInfo.imgUrl = this.data.imgPath
-    console.log(resInfo,444)
     resInfo.prePerson = null
     wx.showModal({
       title: '',
@@ -142,6 +141,32 @@ Page({
                 name: 'db_addRes',
                 data: resInfo,
                 success:res=>{
+                  const resId = res.result._id
+                  console.log(res,123)
+                  //更新用户信息 发布资源+1
+                  wx.cloud.callFunction({
+                    name: 'db_getUserInfoById',
+                    data: {
+                      _id: app.globalData.openid
+                    },
+                    success: res => {
+                      var data = res.result.data
+                      var pubRes = data.pubResource
+                      if (pubRes == undefined) {
+                        pubRes = []
+                      }
+                      pubRes.push(resId)
+                      wx.cloud.callFunction({
+                        name: 'db_updateUserInfo',
+                        data: {
+                          _id: app.globalData.openid,
+                          _userInfo: {
+                            pubResource: Array.from(new Set(pubRes))
+                          },
+                        },
+                      })
+                    }
+                  })
                   wx.switchTab({
                     url: '/pages/res-list/res-list',
                     success: function () {
@@ -153,6 +178,7 @@ Page({
               })
             }
           })
+          
         } else {
           console.log('用户点击取消')
         }
