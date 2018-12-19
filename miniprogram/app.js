@@ -15,7 +15,6 @@ App({
     }
     wx.getSetting({
       success: res => {
-        console.log(res)
         if (!res.authSetting['scope.userInfo']) {
           wx.showModal({
             title: '警告',
