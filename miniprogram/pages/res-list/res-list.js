@@ -13,7 +13,6 @@ Page({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.cloud.callFunction({
@@ -43,7 +42,6 @@ Page({
                     }
                   },
                 })  
-                //打印
 
                 if (_resList[i].fileID==undefined){
                   //给一个默认的imgUrl
@@ -85,9 +83,7 @@ Page({
               this.setData({
                 resList: res.result.data
               })
-              console.log(this.data.resList[4].isOverdue == false)
-              console.log(this.data.resList[4].canCount > 0)
-              console.log(this.data.resList[4].isOverdue == false && this.data.resList[4].canCount > 0,111)
+              console.log(res.result.data,111)
             }
           })
         }

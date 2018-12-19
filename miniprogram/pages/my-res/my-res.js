@@ -14,7 +14,7 @@ Page({
         this.setData({
           myPubResList: res.result
         })
-      }
+       }
     })
   },
 

@@ -7,8 +7,11 @@
       <view class="resource-info-wrapper">
         <view class="resource-info-name">{{resInfo.resourceName}}</view>
         <!-- todo 增加方法判断资源是否已结束：根据时间 -->
-        <view wx:if="{{resInfo.canCount > 5}}"> 
+        <view wx:if="{{resInfo.isOverdue == false && resInfo.canCount > 0}}">
           <view class="resource-info-state color-green">进行中</view>
+        </view>
+        <view wx:elif="{{resInfo.canCount == 0}}">
+          <view class="resource-info-state color-red">人数已满</view>
         </view>
         <view wx:else> 
           <view class="resource-info-state color-red">已完成</view>

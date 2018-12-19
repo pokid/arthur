@@ -42,7 +42,6 @@ App({
           //个人信息入库
           wx.getUserInfo({
             success: res => {
-              console.log(res, 111)
               const userInfo = res.userInfo
             
               wx.cloud.callFunction({
@@ -51,7 +50,6 @@ App({
                   _id: openid,
                 },
                 success:res=>{
-                  console.log(res, 222)
 
                   //如果庫里已經存在則不需再存
                   if (res == null ||res.result==undefined){

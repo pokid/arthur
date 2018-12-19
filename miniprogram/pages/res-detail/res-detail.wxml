@@ -44,9 +44,14 @@
   </view>
   <view class="resource-label">备注信息</view>
   <view class="resource-info-remarks"> {{resInfo.remark}}</view>
-  <view wx:if="{{resInfo.canCount > 0 && resInfo.isOverdue == false}}"> 
+  <view wx:if="{{canPre == true && resInfo.canCount > 0 && resInfo.isOverdue == false}}"> 
   <view class="resource-order-button-wrapper">
     <button class="resource-order-button" data-resInfo = "{{resInfo}}"  bindtap="preOrder">预约</button>
+  </view>
+  </view>
+    <view wx:elif = "{{canPre == false}}" > 
+    <view class="resource-order-button-wrapper">
+    <button class="resource-havedo-button">已预约</button>
   </view>
   </view>
   <view wx:else> 
