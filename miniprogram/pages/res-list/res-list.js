@@ -4,8 +4,8 @@ Page({
     resList: '',
   },
   onShow: function(){
-    console.log(12123)
-    getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    this.onLoad()
+    // getCurrentPages()[getCurrentPages().length - 1].onLoad()
   },
 
   onLoad: function () {

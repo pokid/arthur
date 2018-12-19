@@ -1,7 +1,7 @@
 <form bindsubmit="pubRes">
   <view class="container">
     <view class="resource-label">设置项目</view>
-    <image style="width: 100%;height: 400rpx;" mode="scaleToFill" src="/images/placeholder-detail.png"></image>
+    <image style="width: 100%;height: 400rpx;" mode="scaleToFill" src="{{imgPath}}"></image>
     <cover-view class="resource-image-button" bindtap="bindImageChange">
       添加项目图片
     </cover-view>

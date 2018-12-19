@@ -1,6 +1,9 @@
 const app = getApp()
 Page({
   data: {
+    resInfo: '',
+    imgPath: '/images/placeholder-detail.png',
+    fileID:'',
     date: "请选择",
     startTime: "开始时间",
     endTime: "结束时间"
@@ -13,7 +16,32 @@ Page({
   },
 
   bindImageChange(e) {
-    this.setData({})
+    const _this = this
+    wx.chooseImage({
+      count: 1, // 默认9    
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
+        const filePath = res.tempFilePaths[0]
+        const cloudPath = filePath.split(".")[2] + ".png"
+        wx.cloud.uploadFile({
+          cloudPath: cloudPath,
+          filePath: filePath,
+          success: res => {
+            _this.setData({
+              fileID: res.fileID,
+              imgPath: filePath
+            })
+            wx.showToast({
+              title: '上传成功',
+            })
+          },
+        })
+      }
+    })  
   },
 
   bindDateChange(e) {
@@ -90,6 +118,9 @@ Page({
     resInfo.imgUrl = "http://test"
     resInfo.timeRange = subResInfo.resDate + " " + subResInfo.resStartTime + " - " + subResInfo.resDate + " " + subResInfo.resEndTime
     resInfo.remark = subResInfo.remark
+    resInfo.fileID = this.data.fileID
+    resInfo.imgUrl = this.data.imgPath
+    console.log(resInfo,444)
     resInfo.prePerson = null
     wx.showModal({
       title: '',
