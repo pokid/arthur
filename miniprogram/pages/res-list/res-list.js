@@ -44,7 +44,6 @@ Page({
                   },
                 })  
                 //打印
-                console.log(time >_resList[i].timeRange.split("- ")[1])
 
                 if (_resList[i].fileID==undefined){
                   //给一个默认的imgUrl
@@ -86,7 +85,9 @@ Page({
               this.setData({
                 resList: res.result.data
               })
-              console.log(this.data.resList,111)
+              console.log(this.data.resList[4].isOverdue == false)
+              console.log(this.data.resList[4].canCount > 0)
+              console.log(this.data.resList[4].isOverdue == false && this.data.resList[4].canCount > 0,111)
             }
           })
         }
