@@ -54,26 +54,27 @@ Page({
                       }
                     },
                   }) 
-                  continue
-                }
-                
-                wx.cloud.getTempFileURL({
-                  fileList: [_resList[i].fileID],
-                  success: res => {
-                    const tempImgUrl =res.fileList[0].tempFileURL
-                    _resList[_i].imgUrl = tempImgUrl
-                    //imgUrl入库
-                    wx.cloud.callFunction({
-                      name: 'db_updateResInfo',
-                      data: {
-                        _id: resId,
-                        resInfo: {
-                          imgUrl: tempImgUrl
-                        }
-                      },
-                    })  
+                }else{
+                  if (_resList[_i].imgUrl != '' || _resList[_i].imgUrl != undefined){
+                    wx.cloud.getTempFileURL({
+                      fileList: [_resList[i].fileID],
+                      success: res => {
+                        const tempImgUrl = res.fileList[0].tempFileURL
+                        _resList[_i].imgUrl = tempImgUrl
+                        //imgUrl入库
+                        wx.cloud.callFunction({
+                          name: 'db_updateResInfo',
+                          data: {
+                            _id: resId,
+                            resInfo: {
+                              imgUrl: tempImgUrl
+                            }
+                          },
+                        })
+                      }
+                    })
                   }
-                })
+                } 
               }
             }
           })
