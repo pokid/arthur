@@ -33,15 +33,6 @@ Page({
                 //this.setData({
                 //  isOverdue: time > _resList[i].timeRange.split("- ")[1]
                 //})
-                wx.cloud.callFunction({
-                  name: 'db_updateResInfo',
-                  data: {
-                    _id: resId,
-                    resInfo: {
-                      isOverdue: time > _resList[i].timeRange.split("- ")[1]
-                    }
-                  },
-                })  
 
                 if (_resList[i].fileID==undefined){
                   //给一个默认的imgUrl
@@ -50,7 +41,8 @@ Page({
                     data: {
                       _id: resId,
                       resInfo: {
-                        imgUrl: "/images/placeholder-list.png"
+                        imgUrl: "/images/placeholder-list.png",
+                        isOverdue: time > _resList[i].timeRange.split("- ")[1]
                       }
                     },
                   }) 
