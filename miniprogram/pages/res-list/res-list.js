@@ -1,4 +1,5 @@
 const app = getApp()
+var util = require('../../utils/utils.js');
 Page({
   data: {
     resList: '',
@@ -27,6 +28,24 @@ Page({
               for (var i = 0; i < _resList.length;i++){
                 const _i = i
                 const resId = _resList[i]._id
+
+                var time = util.formatTime(new Date())
+                //为页面中time赋值
+                //this.setData({
+                //  isOverdue: time > _resList[i].timeRange.split("- ")[1]
+                //})
+                wx.cloud.callFunction({
+                  name: 'db_updateResInfo',
+                  data: {
+                    _id: resId,
+                    resInfo: {
+                      isOverdue: time > _resList[i].timeRange.split("- ")[1]
+                    }
+                  },
+                })  
+                //打印
+                console.log(time >_resList[i].timeRange.split("- ")[1])
+
                 if (_resList[i].fileID==undefined){
                   //给一个默认的imgUrl
                   wx.cloud.callFunction({
@@ -81,4 +100,6 @@ Page({
       url: '/pages/res-detail/res-detail?resInfo=' + resInfo
     })
   }
+
+  
 })
