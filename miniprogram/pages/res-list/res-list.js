@@ -34,7 +34,7 @@ Page({
                 //  isOverdue: time > _resList[i].timeRange.split("- ")[1]
                 //})
 
-                if (_resList[i].fileID==undefined){
+                if (_resList[i].fileID == undefined || _resList[i].fileID==''){
                   //给一个默认的imgUrl
                   wx.cloud.callFunction({
                     name: 'db_updateResInfo',
@@ -42,14 +42,12 @@ Page({
                       _id: resId,
                       resInfo: {
                         imgUrl: "/images/placeholder-list.png",
-                        isOverdue: time > _resList[i].timeRange.split("- ")[1]
                       }
                     },
                   }) 
                   continue
                 }
 
-                //给一个默认的imgUrl
                 wx.cloud.callFunction({
                   name: 'db_updateResInfo',
                   data: {
