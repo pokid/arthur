@@ -55,12 +55,12 @@ Page({
                     },
                   }) 
                 }else{
-                  if (_resList[_i].imgUrl != '' || _resList[_i].imgUrl != undefined){
+                  if (_resList[i].imgUrl != '' || _resList[i].imgUrl != undefined){
                     wx.cloud.getTempFileURL({
                       fileList: [_resList[i].fileID],
                       success: res => {
                         const tempImgUrl = res.fileList[0].tempFileURL
-                        _resList[_i].imgUrl = tempImgUrl
+                        _resList[i].imgUrl = tempImgUrl
                         //imgUrl入库
                         wx.cloud.callFunction({
                           name: 'db_updateResInfo',
